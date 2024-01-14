@@ -21,8 +21,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,8 +41,14 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a > b && a > c) {
+    return a;
+  }
+  if (b > a && b > c) {
+    return b;
+  }
+  return c;
 }
 
 /**
@@ -82,8 +91,20 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === 0 || b === 0 || c === 0) {
+    return false;
+  }
+  if (a === b && a + b > c) {
+    return true;
+  }
+  if (b === c && b + c > a) {
+    return true;
+  }
+  if (a === c && a + c > b) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -119,8 +140,55 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const newArr = [];
+  const splt = String(numberStr).split('');
+  splt.forEach((item) => {
+    switch (item) {
+      case 0:
+        newArr.push('zero');
+        break;
+      case 1:
+        newArr.push('one');
+        break;
+      case 2:
+        newArr.push('two');
+        break;
+      case 3:
+        newArr.push('three');
+        break;
+      case 4:
+        newArr.push('four');
+        break;
+      case 5:
+        newArr.push('five');
+        break;
+      case 6:
+        newArr.push('six');
+        break;
+      case 7:
+        newArr.push('seven');
+        break;
+      case 8:
+        newArr.push('eight');
+        break;
+      case 9:
+        newArr.push('nine');
+        break;
+      case '-':
+        newArr.push('minus');
+        break;
+      case '.':
+        newArr.push('point');
+        break;
+      case ',':
+        newArr.push('point');
+        break;
+      default:
+        return false;
+    }
+    return newArr.join(' ');
+  });
 }
 
 /**
