@@ -141,54 +141,32 @@ function convertToRomanNumerals(/* num */) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  const newArr = [];
-  const splt = String(numberStr).split('');
-  splt.forEach((item) => {
-    switch (item) {
-      case 0:
-        newArr.push('zero');
-        break;
-      case 1:
-        newArr.push('one');
-        break;
-      case 2:
-        newArr.push('two');
-        break;
-      case 3:
-        newArr.push('three');
-        break;
-      case 4:
-        newArr.push('four');
-        break;
-      case 5:
-        newArr.push('five');
-        break;
-      case 6:
-        newArr.push('six');
-        break;
-      case 7:
-        newArr.push('seven');
-        break;
-      case 8:
-        newArr.push('eight');
-        break;
-      case 9:
-        newArr.push('nine');
-        break;
-      case '-':
-        newArr.push('minus');
-        break;
-      case '.':
-        newArr.push('point');
-        break;
-      case ',':
-        newArr.push('point');
+  const strings = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    '.': 'point',
+    ',': 'point',
+    '-': 'minus',
+  };
+  let res = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (i) {
+      case numberStr.length - 1:
+        res += `${strings[numberStr[i]]}`;
         break;
       default:
-        return false;
+        res += `${strings[numberStr[i]]} `;
     }
-    return newArr.join(' ');
-  });
+  }
+  return res;
 }
 
 /**
