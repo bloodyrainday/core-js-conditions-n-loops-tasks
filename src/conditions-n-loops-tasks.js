@@ -366,26 +366,25 @@ function sortByAsc(arr) {
  */
 function shuffleChar(string, iterations) {
   let str = string;
-  let done = 0;
   let evenNum = '';
   let oddNum = '';
   let result = '';
-  while (done < iterations) {
-    done += 1;
-    for (let i = 0; i < str.length; i += 1) {
-      if (str.indexOf(str[i]) % 2 === 0 || str.indexOf(str[i]) === 0) {
-        evenNum += str[i];
-      }
-      if (str.indexOf(str[i]) % 2 !== 0) {
-        oddNum += str[i];
+
+  for (let i = 1; i <= iterations; i += 1) {
+    for (let j = 0; j < str.length; j += 2) {
+      evenNum += str[j];
+      if (j + 1 < str.length) {
+        oddNum += str[j + 1];
       }
     }
+
     result = evenNum + oddNum;
     str = result;
     evenNum = '';
     oddNum = '';
     result = '';
   }
+
   return str;
 }
 
